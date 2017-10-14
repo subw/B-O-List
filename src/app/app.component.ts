@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'the League of Draaaaven';
+  hero: Hero = {
+    name: 'SubwaveZ',
+    id: 1
+  }
+}
+
+export class Hero {
+  id: number;
+  name: string;
 }
