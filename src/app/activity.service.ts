@@ -11,11 +11,11 @@ const httpOptions = {
   };
 
 @Injectable()
-export class HeroService {
+export class ActivityService {
     constructor(
         private http: HttpClient) { }
 
-    private heroesUrl = 'api/heroes';  // URL to web api
+    private heroesUrl = 'api/activities';  // URL to web api
 
 
     getHeroes(): Observable<Hero[]> {

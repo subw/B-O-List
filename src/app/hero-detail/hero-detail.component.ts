@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
 import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import { ActivityService } from '../activity.service';
 
 @Component({
   selector: 'hero-detail',
@@ -15,7 +15,7 @@ export class HeroDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private heroService: HeroService,
+    private activityService: ActivityService,
     private location: Location
   ) { }
   
@@ -25,12 +25,12 @@ export class HeroDetailComponent implements OnInit {
 
     getHero(): void {
       const id = +this.route.snapshot.paramMap.get('id');
-      this.heroService.getHero(id)
+      this.activityService.getHero(id)
         .subscribe(hero => this.hero = hero);
     }
 
     save(): void {
-      this.heroService.updateHero(this.hero)
+      this.activityService.updateHero(this.hero)
         .subscribe(() => this.goBack());
     }
 
