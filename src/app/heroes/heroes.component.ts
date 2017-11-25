@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 
-import { Hero } from '../hero';
+import { Activity } from '../activity';
 import { ActivityService } from '../activity.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { ActivityService } from '../activity.service';
   providers: []
 })
 export class HeroesComponent implements OnInit {
-  heroes: Hero[];
+  heroes: Activity[];
 
   constructor(private activityService: ActivityService) { }
 
@@ -20,21 +20,21 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.activityService.getHeroes().subscribe(heroes => this.heroes = heroes);
+    this.activityService.getActivities().subscribe(heroes => this.heroes = heroes);
   }
 
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.activityService.addHero({ name } as Hero)
+    this.activityService.addActivity({ name } as Activity)
       .subscribe(hero => {
         this.heroes.push(hero);
       });
   }
 
-  delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.activityService.deleteHero(hero).subscribe();
+  delete(activity: Activity): void {
+    this.heroes = this.heroes.filter(h => h !== activity);
+    this.activityService.deleteActivity(activity).subscribe();
   }
 }
 

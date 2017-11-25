@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
+import { Activity } from '../activity';
 import { ActivityService } from '../activity.service';
  
 @Component({
@@ -8,7 +8,7 @@ import { ActivityService } from '../activity.service';
   styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
+  heroes: Activity[] = [];
  
   constructor(private activityService: ActivityService) { }
  
@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   }
  
   getHeroes(): void {
-    this.activityService.getHeroes()
+    this.activityService.getActivities()
       .subscribe(heroes => this.heroes = heroes.slice(1, 5));
   }
 }
