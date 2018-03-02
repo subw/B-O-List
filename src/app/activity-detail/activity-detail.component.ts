@@ -20,10 +20,10 @@ export class ActivityDetailComponent implements OnInit {
   ) { }
   
     ngOnInit() {
-      this.getHero();
+      this.getActivity();
     }
 
-    getHero(): void {
+    getActivity(): void {
       const id = +this.route.snapshot.paramMap.get('id');
       this.activityService.getActivity(id)
         .subscribe(activity => this.activity = activity);
